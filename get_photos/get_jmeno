@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+curl -O -s \
+    -b "idc=$(cat idc)" \
+    "https://is.cuni.cz/studium/kdojekdo/index.php?id=$(cat id)&tid=&do=detail&si=$1"
+grep -b1 Jméno index.php | grep td | sed 's/.*>\(.*\)<.*/\1/'

@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+./get_jmeno $1 > jmeno_dia
+iconv -f utf8 -t ascii//TRANSLIT jmeno_dia > jmeno
+curl -O -s \
+    -b "idc=$(cat idc)" \
+    "https://is.cuni.cz/studium/stev/rest.php?id=$(cat id)&tid=&do=foto&size=large&sident=$1"
+printf "   -> saving as out/$1_$(cat jmeno).jpeg\n"
+mv rest.php "out/$1_$(cat jmeno).jpeg"
+rm jmeno jmeno_dia index.php

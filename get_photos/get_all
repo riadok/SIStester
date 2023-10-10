@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+while read sid; do
+    printf "getting sident $sid\n";
+    ./get_photo $sid;
+    sleep 1;
+done < sidents

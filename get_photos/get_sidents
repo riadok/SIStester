@@ -1,0 +1,2 @@
+#!/bin/sh
+cat studenti.html | grep "img src=\"*\"" | sed 's/.*src="\([^"]*\)".*/\1/' | cut -d\& -f5 | cut -d= -f2 > sidents

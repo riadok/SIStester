@@ -1,0 +1,9 @@
+#entry{
+    font-weight: bold;
+}
+#entry.red{
+    background-image: image(#FFAAAA);
+}
+#entry.green{
+    background-image: image(#AAFFAA);
+}
