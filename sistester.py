@@ -84,6 +84,10 @@ class TesterWindow(Gtk.Window):
             
     def next_image(self):
         print(sum(self.probabilities))
+        if(sum(self.probabilities) == 0):
+            Gtk.main_quit()
+            print("You Won!")
+            return
         self.entry.set_text("")
         [new_guess] = random.choices(list(enumerate(zip(self.images,self.names))),weights=self.probabilities,k=1)
         self.img.set_from_pixbuf(new_guess[1][0])
